@@ -27,7 +27,7 @@ function input() {
 				celebrityCapitalized += checkCelebrity.charAt(i);
 			}
 		}
-		document.getElementById('image1').style.maxHeight = "600px";
+		document.getElementById('image1').style.maxHeight = "550px";
 		alert("Correct! The celebrity is " + celebrityCapitalized);
 	}
 }
