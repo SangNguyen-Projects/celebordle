@@ -15,7 +15,7 @@ function input() {
 	var x = document.getElementById('firstLine').value.toLowerCase();
 	if(x != checkCelebrity){
 		maxHeight += 100;
-		if(maxHeight <= 650){
+		if(maxHeight <= 550){
 			document.getElementById('image1').style.maxHeight = maxHeight + "px";
 		}
 	}else{
