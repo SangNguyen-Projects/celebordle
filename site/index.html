@@ -17,11 +17,25 @@
     	</script>
     </div>  
     <div class = "center">         
-        <input type="text" id="firstLine">
-        <input type="button" value="Enter" OnClick="input()">           
+        <input list = "celebrities" type="text" id="firstLine" placeholder= "Celebrity..">
+        <input type="button" value="Enter" OnClick="checkInput()">
+        <script>
+        	var input = document.getElementById("firstLine");
+        	input.addEventListener("keypress", enterKey);
+        </script>
+
+        <datalist id = "celebrities">
+        	<script>
+        	celebrityOptions();
+        	</script>
+        </datalist>          
     </div>
     <div class = "center">
-    	<input type = "button" value = "Another Celebrity" OnClick="changeCelebrity()">
+    	<input type = "button" id = "anotherCeleb" value = "Another Celebrity" OnClick="changeCelebrity()">
+    	<script>
+        	var button = document.getElementById("anotherCeleb");
+        	button.addEventListener("keypress", preventDefault);
+        </script>
     </div>
 
    
