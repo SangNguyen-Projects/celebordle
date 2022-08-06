@@ -1,10 +1,11 @@
-var maxHeight = 150;
+var maxHeight = 100;
 
 const arr = ['chris evans', 'dwayne johnson', 'justin bieber', 'robert downey jr', 
 'tom holland'];
 var initialRandomInt = Math.floor(Math.random() * arr.length);
 
 var checkCelebrity = arr[initialRandomInt];
+
 
 function firstImage(){
 	var img = "<img id = 'image1' src = 'images/";
@@ -15,15 +16,27 @@ function firstImage(){
 
 function checkInput() {
 	var x = document.getElementById('firstLine').value.toLowerCase();
-	if(x != checkCelebrity){
-		maxHeight += 100;
-		if(maxHeight <= 550){
+	if(x.trim().length == 0 || !validCelebrity(x)){
+		document.getElementById('warning').style.opacity = "1";
+	}else if(x != checkCelebrity){
+		document.getElementById('warning').style.opacity = "0";
+		maxHeight += 50;
+		if(maxHeight <= 400){
 			document.getElementById('image1').style.maxHeight = maxHeight + "px";
 		}
-	}else{
-		document.getElementById('image1').style.maxHeight = "550px";
+	} else{
+		document.getElementById('image1').style.maxHeight = "400px";
+		document.getElementById('warning').style.opacity = "0";
 		alert("Correct! The celebrity is " + capitalize(checkCelebrity));
 	}
+}
+function validCelebrity(celebrity){
+	for(let i = 0; i < arr.length; i++){
+		if(celebrity == arr[i]){
+			return true;
+		}
+	}
+	return false;
 }
 
 function enterKey(event){
@@ -66,6 +79,6 @@ function changeCelebrity() {
 	document.getElementById('image1').src = "images/" + newCelebrity + ".jpg";
 	checkCelebrity = newCelebrity
 
-	maxHeight = 150;
-	document.getElementById('image1').style.maxHeight = "150px";
+	maxHeight = 100;
+	document.getElementById('image1').style.maxHeight = "100px";
 }

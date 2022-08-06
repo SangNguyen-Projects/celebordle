@@ -1,18 +1,21 @@
 #image {
-	max-width: 600px;
-	
+	max-width: 400px;
+	border-radius: 10px;
 
     margin: auto;
     background-color: black;
 
-
-    min-height:  560px;
+    overflow: hidden;
+    min-height:  410px;
 }
 
 h2{
 	background-color: lightblue;
 	border-style: solid;
 	border-color:  black;
+	text-align: center;
+    padding-top:  10px;  
+    padding-bottom: 10px;
 }
 
 #image1 {
@@ -21,21 +24,32 @@ h2{
 
 
   	padding-top: 5px;
-  	min-width: 600px;
-  	max-height: 150px;
+  	min-width: 400px;
+  	max-height: 100px;
     
 }
 
 input[type="text"]{
-	width: 200px;
-	height: 20px;
+	padding: 12px 20px;
+  	background-color: lightblue;
+  	border-radius: 15px;
+  	border-color: gray;
+  	border-style: solid;
+  	font-size: 1.6em;
+  	font-family: times new roman;
 }
-
 
 .center {
     text-align: center;
-    padding-top:  10px;
-    padding-bottom:  10px;    
+    padding-bottom: 15px;
+    padding-top: 5px;  
+}
+
+#warning{
+	text-align: center;
+	color: red;
+	opacity: 0;
+	padding-top: 5px;
 }
 
 hr{
@@ -50,3 +64,54 @@ hr{
 body{
 	background-color: lightgray;
 }
+
+
+#enterButton {
+            text-decoration: none;
+            border: none;
+            padding: 10px 25px;
+            font-size: 16px;
+            background-color: green;
+            color: #fff;
+            border-radius: 5px;
+            box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+            cursor: pointer;
+            outline: none;
+            transition: 0.2s all;
+        }
+        /* Adding transformation when the button is active */
+          
+        #enterButton:active {
+            transform: scale(0.96);
+            /* Scaling button to 0.98 to its original size */
+            box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+            /* Lowering the shadow */
+        }
+
+#anotherCeleb {
+            text-decoration: none;
+            border: none;
+            padding: 20px 20px;
+            font-size: 1.2em;
+            background-color: lightcoral;
+            color: #fff;
+            border-radius: 20px;
+            box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+            cursor: pointer;
+            outline: none;
+            transition: 0.2s all;
+            font-family:  lucida console;
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
+        }
+        /* Adding transformation when the button is active */
+          
+        #anotherCeleb:active {
+            transform: scale(0.96);
+            /* Scaling button to 0.98 to its original size */
+            box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+            /* Lowering the shadow */
+        }
+
+        

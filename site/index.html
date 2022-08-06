@@ -8,28 +8,31 @@
 	<title>Celebordle!</title>
 </head>
 <body>
-	<h2 class = "center">
+	<h2>
 		CELEBORDLE
 	</h2>
 	<div id="image">
 		<script>
 		firstImage();
     	</script>
-    </div>  
-    <div class = "center">         
+    </div> 
+    <div id = "warning">
+    	Enter a valid celebrity name
+    </div> 
+    <div class = "center">       
         <input list = "celebrities" type="text" id="firstLine" placeholder= "Celebrity..">
-        <input type="button" value="Enter" OnClick="checkInput()">
+        <input type="button" id = "enterButton" value="Enter" OnClick="checkInput()">
         <script>
         	var input = document.getElementById("firstLine");
         	input.addEventListener("keypress", enterKey);
         </script>
-
         <datalist id = "celebrities">
         	<script>
         	celebrityOptions();
         	</script>
         </datalist>          
     </div>
+    
     <div class = "center">
     	<input type = "button" id = "anotherCeleb" value = "Another Celebrity" OnClick="changeCelebrity()">
     	<script>
