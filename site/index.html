@@ -11,14 +11,20 @@
 	<h2>
 		CELEBORDLE
 	</h2>
+	<div id = "score">
+		<span id = "scoreText">YOUR SCORE: </span><span id = "scoreNumber">0</span>
+	</div>
 	<div id="image">
 		<script>
 		firstImage();
     	</script>
     </div> 
+    <div id = "overlapDiv">
+    	<span id = "overlapText">You already guessed this!</span>
     <div id = "warning">
     	Enter a valid celebrity name
     </div> 
+    </div>
     <div class = "center">       
         <input list = "celebrities" type="text" id="firstLine" placeholder= "Celebrity..">
         <input type="button" id = "enterButton" value="Enter" OnClick="checkInput()">
@@ -41,8 +47,7 @@
         </script>
     </div>
 
-   
-
+  
    	<div id = "tag" class="center">
    		 <hr>
    	<small>

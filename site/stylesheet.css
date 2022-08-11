@@ -1,3 +1,26 @@
+
+h2{
+	background-color: lightblue;
+	border-style: solid;
+	border-color:  black;
+	border-radius: 5px;
+	text-align: center;
+    padding-top:  10px;  
+    padding-bottom: 10px;
+}
+
+#score{
+	text-align: center;
+}
+#scoreText{
+	font-size: 1.3em;
+}
+#scoreNumber{
+	font-size: 1.4em;
+	color: blue;
+	font-weight: bold;
+}
+
 #image {
 	max-width: 400px;
 	border-radius: 10px;
@@ -8,16 +31,6 @@
     overflow: hidden;
     min-height:  410px;
 }
-
-h2{
-	background-color: lightblue;
-	border-style: solid;
-	border-color:  black;
-	text-align: center;
-    padding-top:  10px;  
-    padding-bottom: 10px;
-}
-
 #image1 {
 	object-fit: none;
   	object-position: top;
@@ -35,7 +48,7 @@ input[type="text"]{
   	border-radius: 15px;
   	border-color: gray;
   	border-style: solid;
-  	font-size: 1.6em;
+  	font-size: 1.4em;
   	font-family: times new roman;
 }
 
@@ -45,11 +58,18 @@ input[type="text"]{
     padding-top: 5px;  
 }
 
-#warning{
-	text-align: center;
+#overlapDiv{
+	
+	position: relative; margin: 0 auto; text-align: center;
+}
+#overlapText{
 	color: red;
 	opacity: 0;
-	padding-top: 5px;
+}
+#warning{
+	position: absolute; top: 0; width: 100%;
+	color: red;
+	opacity: 0;
 }
 
 hr{
@@ -70,7 +90,7 @@ body{
             text-decoration: none;
             border: none;
             padding: 10px 25px;
-            font-size: 16px;
+            font-size: 1em;
             background-color: green;
             color: #fff;
             border-radius: 5px;
@@ -92,7 +112,7 @@ body{
             text-decoration: none;
             border: none;
             padding: 20px 20px;
-            font-size: 1.2em;
+            font-size: 1em;
             background-color: lightcoral;
             color: #fff;
             border-radius: 20px;
