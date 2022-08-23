@@ -19,7 +19,7 @@ var wonOrLost = false;
 var score = 0;
 
 function firstImage(){
-	var img = "<img id = 'image1' src = 'images/";
+	var img = "<img id = 'image' src = 'images/";
 	img += checkCelebrity;
 	img += ".jpg' alt = ''/>"
 	document.write(img);
@@ -38,14 +38,23 @@ function checkInput() {
 		if(!hasAlreadyGuessed(x)){
 			maxHeight += 50;
 			if(maxHeight <= 400){
-				document.getElementById('image1').style.maxHeight = maxHeight + "px";
+				document.getElementById('image').style.maxHeight = maxHeight + "px";
 			}else{
 				wonOrLost = true;
 				var obj = document.getElementById("scoreNumber");
-				var oldScore = score;
-				score -= 200;
-				animateValue(obj, oldScore, score, 3000);
-				alert("Wrong! The celebrity is " + celebrityCapitalized);
+				if(score < 200){
+					animateValue(obj, score, 0, 3000);
+				}else{
+					var oldScore = score;
+					score -= 200;
+					animateValue(obj, oldScore, score, 3000);
+				}
+				var popup = document.getElementById("myPopup");
+				popup.innerHTML = "WRONG! The celebrity is " + celebrityCapitalized;
+				popup.style.backgroundColor = "red";
+				popup.classList.remove("correct");
+				popup.classList.add("wrong");
+  				popup.classList.toggle("show");
 			}
 			alreadyGuessed.push(x);
 			document.getElementById('overlapText').style.opacity = "0";
@@ -58,13 +67,16 @@ function checkInput() {
 		score += scoreIncrease(maxHeight);
 		animateValue(obj, oldScore, score, 5000);
 
-		document.getElementById('image1').style.maxHeight = "400px";
+		document.getElementById('image').style.maxHeight = "400px";
 		document.getElementById('warning').style.opacity = "0";
 		document.getElementById('overlapText').style.opacity = "0";
 		wonOrLost = true;
 		
 		var popup = document.getElementById("myPopup");
-		popup.innerHTML = "Correct! The celebrity is " + celebrityCapitalized;
+		popup.innerHTML = "CORRECT! The celebrity is " + celebrityCapitalized;
+		popup.style.backgroundColor = "green";
+		popup.classList.remove("wrong");
+		popup.classList.add("correct");
   		popup.classList.toggle("show");
 	}
 }
@@ -115,21 +127,25 @@ function celebrityOptions(){
 }
 
 function changeCelebrity() {
-	if(!wonOrLost && score >= 200){
+	if(!wonOrLost){
 		var obj = document.getElementById("scoreNumber");
-		var oldScore = score;
-		score -= 200;
-		animateValue(obj, oldScore, score, 3000);
+		if(score < 200){
+			animateValue(obj, score, 0, 3000);
+		}else{
+			var oldScore = score;
+			score -= 200;
+			animateValue(obj, oldScore, score, 3000);
+		}
 	}
 	var randomInt = Math.floor(Math.random() * arr.length);
 	celebrityCapitalized = arr[randomInt];
 	checkCelebrity = celebrityCapitalized.toLowerCase();
 
-	document.getElementById('image1').src = "images/" + checkCelebrity + ".jpg";
+	document.getElementById('image').src = "images/" + checkCelebrity + ".jpg";
 	
 
 	maxHeight = 100;
-	document.getElementById('image1').style.maxHeight = "100px";
+	document.getElementById('image').style.maxHeight = "100px";
 	document.getElementById('overlapText').style.opacity = "0";
 	document.getElementById('warning').style.opacity = "0";
 	alreadyGuessed = [];
