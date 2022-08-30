@@ -1,10 +1,13 @@
 var maxHeight = 100;
 
-const arr = ['Ariana Grande','Arnold Schwarzenegger','Ben Affleck','Brad Pitt','Bruce Willis','Chris Evans',
+const arr = ['Ariana Grande','Arnold Schwarzenegger','Ben Affleck','Benedict Cumberbatch',
+'Brad Pitt','Bruce Willis','Chadwick Boseman','Chris Evans',
 'Chris Hemsworth','Denzel Washington','Drake',
-'Dwayne Johnson','Emma Watson','Harrison Ford','Jennifer Aniston','Jennifer Lawrence','Jim Carrey','Johnny Depp', 
-'Justin Bieber','Kevin Hart','Mark Wahlberg',
-'Megan Fox','Oprah Winfrey','Robert Downey Jr','Scarlett Johansson','Tom Cruise','Tom Hanks','Tom Holland',
+'Dwayne Johnson','Ellen DeGeneres',
+'Emma Watson','Harrison Ford','Jennifer Aniston','Jennifer Lawrence','Jim Carrey','Johnny Depp', 
+'Justin Bieber','Kevin Hart','Kobe Bryant','Mark Wahlberg',
+'Megan Fox','Oprah Winfrey','Paul Rudd','Robert Downey Jr','Scarlett Johansson','Tom Cruise',
+'Tom Hanks','Tom Holland',
 'Vin Diesel','Will Smith'];
 
 var initialRandomInt = Math.floor(Math.random() * arr.length);
@@ -39,16 +42,16 @@ function checkInput() {
 			maxHeight += 50;
 			if(maxHeight <= 400){
 				document.getElementById('image').style.maxHeight = maxHeight + "px";
-			}else{
-				wonOrLost = true;
 				var obj = document.getElementById("scoreNumber");
-				if(score < 200){
+				if(score < 100){
 					animateValue(obj, score, 0, 3000);
 				}else{
 					var oldScore = score;
-					score -= 200;
+					score -= 100;
 					animateValue(obj, oldScore, score, 3000);
 				}
+			}else{
+				wonOrLost = true;
 				var popup = document.getElementById("myPopup");
 				popup.innerHTML = "WRONG! The celebrity is " + celebrityCapitalized;
 				popup.style.backgroundColor = "red";
@@ -64,7 +67,7 @@ function checkInput() {
 	} else{
 		var obj = document.getElementById("scoreNumber");
 		var oldScore = score;
-		score += scoreIncrease(maxHeight);
+		score += 1000;
 		animateValue(obj, oldScore, score, 5000);
 
 		document.getElementById('image').style.maxHeight = "400px";
@@ -81,10 +84,6 @@ function checkInput() {
 	}
 }
 
-function scoreIncrease(mHeight){
-	var subtractBy = (mHeight - 100) / 50 * 100;
-	return 1000 - subtractBy;
-}
 
 function hasAlreadyGuessed(celebrity){
 	for(let i = 0; i < alreadyGuessed.length; i++){
@@ -166,3 +165,4 @@ function animateValue(obj, start, end, duration) {
   };
   window.requestAnimationFrame(step);
 }
+
