@@ -126,6 +126,7 @@ function celebrityOptions(){
 }
 
 function changeCelebrity() {
+	document.getElementById('firstLine').value = "";
 	if(!wonOrLost){
 		var obj = document.getElementById("scoreNumber");
 		if(score < 200){
