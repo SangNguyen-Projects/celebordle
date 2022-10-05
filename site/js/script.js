@@ -45,6 +45,7 @@ function checkInput() {
 				var obj = document.getElementById("scoreNumber");
 				if(score < 100){
 					animateValue(obj, score, 0, 3000);
+					score = 0;
 				}else{
 					var oldScore = score;
 					score -= 100;
@@ -126,23 +127,24 @@ function celebrityOptions(){
 }
 
 function changeCelebrity() {
+	var randomInt = Math.floor(Math.random() * arr.length);
+	celebrityCapitalized = arr[randomInt];
+	checkCelebrity = celebrityCapitalized.toLowerCase();
+	document.getElementById('image').src = "images/" + checkCelebrity + ".jpg";
+
 	document.getElementById('firstLine').value = "";
+
 	if(!wonOrLost){
 		var obj = document.getElementById("scoreNumber");
 		if(score < 200){
 			animateValue(obj, score, 0, 3000);
+			score = 0;
 		}else{
 			var oldScore = score;
 			score -= 200;
 			animateValue(obj, oldScore, score, 3000);
 		}
-	}
-	var randomInt = Math.floor(Math.random() * arr.length);
-	celebrityCapitalized = arr[randomInt];
-	checkCelebrity = celebrityCapitalized.toLowerCase();
-
-	document.getElementById('image').src = "images/" + checkCelebrity + ".jpg";
-	
+	}	
 
 	maxHeight = 100;
 	document.getElementById('image').style.maxHeight = "100px";
